@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ "$1" != "" ]; then
+    echo "port $1"
+    stty -F "/dev/"$1 1200
+    sleep 1
+    ./bossac -i -d --port=$1 -U true -i -e -w -v $2 -R
+else
+    echo "Please enter port"
+fi
